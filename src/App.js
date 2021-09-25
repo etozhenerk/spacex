@@ -5,15 +5,21 @@ import { Footer } from "./components/Footer/Footer";
 import { Features } from "./components/Features/Features";
 import "./style.css";
 
-function App() {
-  return (
-    <>
-      <Header/>
-      <Main/>
-      <Features/>
-      <Footer/>
-    </>
-  );
+class App extends React.Component {
+  state = {
+    rocket: 'Falcon 1',
+  };
+
+  render() {
+    return (
+      <>
+        <Header />
+        <Main />
+        <Features />
+        <Footer />
+      </>
+    );
+  }
 }
 
 export default App;
