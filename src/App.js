@@ -14,7 +14,7 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <Main />
+        <Main rocket={this.state.rocket}/>
         <Features />
         <Footer />
       </>
