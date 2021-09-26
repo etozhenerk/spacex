@@ -32,10 +32,19 @@ class App extends React.Component {
       .then((rocketFeatures) => this.setState({ rocketFeatures }));
   }
 
+  changeRocket = (rocket) => {
+    this.setState(
+      {
+        rocket,
+      },
+      this.updateRocket,
+    );
+  };
+
   render() {
     return (
       <>
-        <Header rockets={this.state.rockets} />
+        <Header rockets={this.state.rockets} changeRocket={this.changeRocket} />
         <Main rocket={this.state.rocket} />
         <Features />
         <Footer />
