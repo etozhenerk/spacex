@@ -4,6 +4,7 @@ import { Header } from "./components/Header/Header";
 import { Main } from "./components/Main/Main";
 import { Footer } from "./components/Footer/Footer";
 import { Features } from "./components/Features/Features";
+import { Home } from "./components/Home/Home";
 import "./style.css";
 
 class App extends React.Component {
@@ -51,8 +52,9 @@ class App extends React.Component {
     return (
       <>
         <Header rockets={this.state.rockets} changeRocket={this.changeRocket} />
-        <Main rocket={this.state.rocket} />
-        {this.state.rocketFeatures && <Features {...this.state.rocketFeatures} />}
+        {this.state.company && <Home company={this.state.company} />}
+        {/* <Main rocket={this.state.rocket} />
+        {this.state.rocketFeatures && <Features {...this.state.rocketFeatures} />} */}
         {this.state.company && <Footer {...this.state.company.links} />}
       </>
     );
