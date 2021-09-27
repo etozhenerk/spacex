@@ -13,10 +13,12 @@ class App extends React.Component {
     rocket: "Falcon 1",
     rocketFeatures: null,
     rockets: [],
+    company: null,
   };
 
   componentDidMount() {
     this.updateRocket();
+    this.updateCompany();
   }
 
   updateRocket() {
@@ -41,13 +43,17 @@ class App extends React.Component {
     );
   };
 
+  updateCompany = () => {
+    this.fetchData.getCompany().then((company) => this.setState({ company }));
+  };
+
   render() {
     return (
       <>
         <Header rockets={this.state.rockets} changeRocket={this.changeRocket} />
         <Main rocket={this.state.rocket} />
         {this.state.rocketFeatures && <Features {...this.state.rocketFeatures} />}
-        <Footer />
+        {this.state.company && <Footer {...this.state.company.links} />}
       </>
     );
   }
