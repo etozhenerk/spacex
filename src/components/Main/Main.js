@@ -8,9 +8,9 @@ const video = {
   other: "space",
 };
 
-export const Main = ({ rocket }) => (
+export const Main = ({ rocket, name }) => (
   <section className="main">
-    <h1 className="title">{rocket ? rocket : "Calendar SpaceX"}</h1>
+    <h1 className="title">{name || rocket}</h1>
 
     {rocket && (
       <div className="video-container">

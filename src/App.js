@@ -64,7 +64,7 @@ class App extends React.Component {
           {this.state.rocketFeatures && <Features {...this.state.rocketFeatures} />}
         </Route>
         <Route path="/calendar" component={Calendar} />
-        <Route path="/details" component={Details} />
+        <Route path="/details/:id" component={Details} />
         {this.state.company && <Footer {...this.state.company.links} />}
       </BrowserRouter>
     );

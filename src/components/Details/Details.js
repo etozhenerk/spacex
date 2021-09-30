@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { Main } from "../Main/Main";
+import { useFetch } from "../Hooks/useFetch";
 import "./details.css";
 
-export const Details = () => {
-  
-  const history = useHistory();
+export const Details = ({ match : { params : { id } } }) => {
 
+  const history = useHistory();
+  const { getLaunch } = useFetch();
+  const [ launch, setLaunch ] = useState(null);
+
+  useEffect(() => {
+    setLaunch(getLaunch(id));
+  },[getLaunch]);
+
+
+//прелоудер
+//1 12
   return (
     <>
-      <Main />
+      <Main name={launch?.name} />
       <main className="details">
         <div className="container">
           <div className="details-row">
             <div className="details-image">
-              <img src="https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png" alt="" />
+              <img src={launch?.links.patch.small} alt="" />
             </div>
             <div className="details-content">
-              <p className="details-description">Engine failure at 33 seconds and loss of vehicle</p>
+              <p className="details-description">{launch?.name}</p>
             </div>
           </div>
           <div>
