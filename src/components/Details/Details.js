@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import YouTube from "react-youtube";
 import { useHistory } from "react-router";
 import { Main } from "../Main/Main";
 import { useFetch } from "../Hooks/useFetch";
@@ -16,7 +17,6 @@ export const Details = ({ match : { params : { id } } }) => {
 
 
 //прелоудер
-//1 12
   return (
     <>
       <Main name={launch?.name} />
@@ -31,15 +31,7 @@ export const Details = ({ match : { params : { id } } }) => {
             </div>
           </div>
           <div>
-            <iframe
-              className="details-youtube"
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/dLQ2tZEH6G0"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <YouTube className="details-youtube" videoId={launch?.links.youtube_id}/>
           </div>
         </div>
         <a onClick={history.goBack} className="button button-back">
